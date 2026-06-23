@@ -18,7 +18,7 @@ export default function ApplyModal({ job, onClose }) {
     try {
       const token = localStorage.getItem("token");
       await axios.post(
-        "http://localhost:5000/api/applications/apply",
+        "https://jobportalbackend-4vft.onrender.com/api/applications/apply",
         { jobId: job._id, ...form },
         { headers: { Authorization: `Bearer ${token}` } }
       );
