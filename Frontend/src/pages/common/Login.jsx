@@ -3,7 +3,7 @@ import { useAuth } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import LoadingSpinner from "../../components/LoadingSpinner";
-import loginImg from "../../../assest/login.png";
+// import loginImg from "../../../assest/login.png";
 export default function Login() {
   const { loginJobSeeker } = useAuth();
   const navigate = useNavigate();
@@ -30,7 +30,7 @@ export default function Login() {
   return (
     <>
       {loading ? <LoadingSpinner /> : <></>}
-      <div
+      {/* <div
         className="flex justify-end items-center text-white"
         style={{
           backgroundImage: `url(${loginImg})`,
@@ -42,7 +42,17 @@ export default function Login() {
           fontFamily: "'Noto Serif', serif",
           imageRendering: "auto",
         }}
-      >
+      > */
+      <div
+  className="flex justify-end items-center text-white"
+  style={{
+    background:
+      "linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #8a2be2 100%)",
+    height: "100vh",
+    width: "100%",
+    fontFamily: "'Noto Serif', serif",
+  }}
+>}
         <div className="p-12 rounded text-right mr-20 w-[500px] h-[600px]">
           <div className="bg-black rounded-2xl shadow-lg w-full max-w-md p-8">
             <div className="text-center mb-6">
