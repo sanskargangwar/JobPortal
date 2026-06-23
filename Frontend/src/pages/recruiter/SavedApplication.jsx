@@ -12,7 +12,7 @@ export default function SavedApplications() {
       try {
         const token = localStorage.getItem("token");
         const res = await axios.get(
-          "http://localhost:5000/api/saved-applications/recruiter/saved",
+          "https://jobportalbackend-4vft.onrender.com/api/saved-applications/recruiter/saved",
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -31,7 +31,7 @@ export default function SavedApplications() {
     try {
       const token = localStorage.getItem("token");
       await axios.delete(
-        `http://localhost:5000/api/saved-applications/${id}/save`,
+        `https://jobportalbackend-4vft.onrender.com/api/saved-applications/${id}/save`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
