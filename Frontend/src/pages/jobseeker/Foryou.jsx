@@ -22,7 +22,7 @@ export default function Foryou() {
         return;
       }
       try {
-        const response = await axios.get("http://localhost:5000/api/users/me", {
+        const response = await axios.get("https://jobportalbackend-4vft.onrender.com/api/users/me", {
           headers: { Authorization: `Bearer ${token}` },
         });
         setHasResume(!!response.data.resume);
@@ -43,7 +43,7 @@ export default function Foryou() {
       try {
         setFetchingResume(true);
         const response = await axios.post(
-          "http://localhost:5001/recommend-jobs",
+          "https://jobportalbackend-4vft.onrender.com/recommend-jobs",
           { userId }
         );
         setRecommendedJobs(response.data.recommendedJobs || []);
@@ -72,7 +72,7 @@ export default function Foryou() {
     try {
       setUploading(true);
       const response = await axios.post(
-        "http://localhost:5000/api/resume/upload-resume",
+        "https://jobportalbackend-4vft.onrender.com/api/resume/upload-resume",
         formData,
         {
           headers: {
