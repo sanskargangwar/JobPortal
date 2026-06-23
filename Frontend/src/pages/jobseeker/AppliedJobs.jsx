@@ -18,7 +18,7 @@ const AppliedJobs = () => {
       setLoading(true);
       try {
         const res = await axios.get(
-          "http://localhost:5000/api/applications/recently-applied",
+          "https://jobportalbackend-4vft.onrender.com//api/applications/recently-applied",
           { headers: { Authorization: `Bearer ${token}` } }
         );
         setApplications(res.data);
