@@ -13,7 +13,7 @@ export default function Applications() {
       try {
         const token = localStorage.getItem("token");
         const res = await axios.get(
-          "http://localhost:5000/api/applications/recruiter/applications",
+          "https://jobportalbackend-4vft.onrender.com/api/applications/recruiter/applications",
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -32,7 +32,7 @@ export default function Applications() {
     try {
       const token = localStorage.getItem("token");
       await axios.put(
-        `http://localhost:5000/api/applications/${id}/status`,
+        `https://jobportalbackend-4vft.onrender.com/api/applications/${id}/status`,
         { status },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -49,7 +49,7 @@ export default function Applications() {
     try {
       const token = localStorage.getItem("token");
       await axios.post(
-        `http://localhost:5000/api/saved-applications/${id}/save`,
+        `https://jobportalbackend-4vft.onrender.com/api/saved-applications/${id}/save`,
         {},
         { headers: { Authorization: `Bearer ${token}` } }
       );
