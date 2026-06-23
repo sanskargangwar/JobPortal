@@ -30,7 +30,7 @@ export const SavedJobsProvider = ({ children }) => {
     if (!token) return;
     try {
       const isSaved = savedJobs.includes(jobId);
-      const url = `http://localhost:5000/api/saved-jobs/${jobId}`;
+      const url = `https://jobportal-m9c9.onrender.com/api/saved-jobs/${jobId}`;
       if (isSaved) {
         await axios.delete(url, {
           headers: { Authorization: `Bearer ${token}` },
