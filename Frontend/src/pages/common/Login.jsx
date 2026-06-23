@@ -3,7 +3,7 @@ import { useAuth } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import LoadingSpinner from "../../components/LoadingSpinner";
-import loginImg from "../../assets/login.png";
+import loginImg from "../../../assets/login.png";
 export default function Login() {
   const { loginJobSeeker } = useAuth();
   const navigate = useNavigate();
