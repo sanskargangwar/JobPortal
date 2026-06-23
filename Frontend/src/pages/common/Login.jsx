@@ -3,7 +3,7 @@ import { useAuth } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import LoadingSpinner from "../../components/LoadingSpinner";
-
+import loginImg from "../../assets/login.png";
 export default function Login() {
   const { loginJobSeeker } = useAuth();
   const navigate = useNavigate();
@@ -33,7 +33,7 @@ export default function Login() {
       <div
         className="flex justify-end items-center text-white"
         style={{
-          backgroundImage: `url(login.png)`,
+          backgroundImage: `url(${loginImg})`,
           height: "100vh",
           width: "100%",
           backgroundSize: "cover",
