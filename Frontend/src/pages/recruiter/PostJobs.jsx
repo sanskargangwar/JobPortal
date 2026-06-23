@@ -21,7 +21,7 @@ export default function PostJob() {
     setLoading(true);
     try {
       const token = localStorage.getItem("token");
-      await axios.post("http://localhost:5000/api/jobs/post-job", form, {
+      await axios.post("https://jobportalbackend-4vft.onrender.com/api/jobs/post-job", form, {
         headers: { Authorization: `Bearer ${token}` },
       });
 
