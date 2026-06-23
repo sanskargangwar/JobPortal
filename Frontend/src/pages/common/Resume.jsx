@@ -12,7 +12,7 @@ export default function ResumePage() {
     const fetchResume = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:5000/api/resume/public/${userId}`
+          `https://jobportalbackend-4vft.onrender.com/api/resume/public/${userId}`
         );
         setResume(res.data.resume);
       } catch (err) {
