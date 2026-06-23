@@ -16,7 +16,7 @@ export default function MyJobs() {
       setLoading(true);
       try {
         const token = localStorage.getItem("token");
-        const res = await axios.get("http://localhost:5000/api/jobs/my-jobs", {
+        const res = await axios.get("https://jobportalbackend-4vft.onrender.com/api/jobs/my-jobs", {
           headers: { Authorization: `Bearer ${token}` },
         });
         setJobs(res.data);
@@ -35,7 +35,7 @@ export default function MyJobs() {
     setLoading(true);
     try {
       const token = localStorage.getItem("token");
-      await axios.delete(`http://localhost:5000/api/jobs/${jobId}`, {
+      await axios.delete(`https://jobportalbackend-4vft.onrender.com/api/jobs/${jobId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       // Remove deleted job from state
