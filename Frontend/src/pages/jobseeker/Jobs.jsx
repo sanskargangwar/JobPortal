@@ -14,7 +14,7 @@ export default function JobsPage() {
     const fetchJobs = async () => {
       setLoading(true);
       try {
-        const res = await axios.get("http://localhost:5000/api/jobs/all-jobs");
+        const res = await axios.get("https://jobportalbackend-4vft.onrender.com/api/jobs/all-jobs");
         setJobs(res.data);
       } catch (err) {
         console.error(err);
