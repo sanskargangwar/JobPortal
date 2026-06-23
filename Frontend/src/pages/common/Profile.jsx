@@ -19,7 +19,7 @@ export default function ProfilePage() {
       if (!localStorage.getItem("token")) return;
 
       try {
-        const res = await axios.get("http://localhost:5000/api/users/me", {
+        const res = await axios.get("https://jobportalbackend-4vft.onrender.com/api/users/me", {
           headers: { Authorization: `Bearer ${token}` },
         });
         console.log("API Response:", res.data);
