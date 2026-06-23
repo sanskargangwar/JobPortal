@@ -17,7 +17,7 @@ app.use(bodyParser.json({ limit: "10mb" }));
 app.use(bodyParser.urlencoded({ limit: "10mb", extended: true }));
 app.use(
   cors({
-    origin: "https://jobportal-m9c9.onrender.com/",
+    origin: "https://jobportal-m9c9.onrender.com",
     credentials: true,
   })
 );
