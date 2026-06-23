@@ -14,7 +14,7 @@ export const SavedJobsProvider = ({ children }) => {
     if (!token) return;
     const fetchSavedJobs = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/saved-jobs", {
+        const res = await axios.get("https://jobportalbackend-4vft.onrender.com/api/saved-jobs", {
           headers: { Authorization: `Bearer ${token}` },
         });
         setSavedJobs(res.data.map((job) => job._id)); // store only IDs
