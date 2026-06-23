@@ -1,6 +1,6 @@
 import express from "express";
 import Job from "../models/Jobs.js";
-import { authMiddleware } from "../middleware/authMiddleware.js";
+import { authMiddleware } from "../middleware/authmiddleware.js";
 
 const router = express.Router();
 
