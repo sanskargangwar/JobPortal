@@ -51,6 +51,7 @@ export const AuthProvider = ({ children }) => {
     );
     setToken(res.data.token);
     setUser(res.data.user);
+    console.log("LOGIN USER:", res.data.user);
     return res.data;
   };
   // ================== REGISTER (Job-Seeker) ==================

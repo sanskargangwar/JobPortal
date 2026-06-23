@@ -1,13 +1,41 @@
 import { useAuth } from "../context/AuthContext";
 import { useState, useRef, useEffect } from "react";
 import { useNavigate, Link, useLocation } from "react-router-dom";
-
+import axios from "axios";
 export default function Navbar() {
-  const { user, logout } = useAuth();
+  const { user: authUser, logout } = useAuth();
+  const [user, setUser] = useState(authUser);
+  console.log(user);
+  console.log(user.profilePicture);
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
   const dropdownRef = useRef(null);
   const location = useLocation(); // <-- get current route
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const token = localStorage.getItem("token");
+
+        if (!token) return;
+
+        const res = await axios.get(
+          "http://localhost:5000/api/users/me",
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+
+        setUser(res.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchUser();
+  }, []);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -49,37 +77,33 @@ export default function Navbar() {
             <>
               <Link
                 to="/user/dashboard"
-                className={`hover:drop-shadow-[0_0_8px_#8a2be2] ${
-                  isActive("/user/dashboard")
+                className={`hover:drop-shadow-[0_0_8px_#8a2be2] ${isActive("/user/dashboard")
                     ? "text-[#8a2be2]"
                     : "text-gray-300"
-                }`}
+                  }`}
               >
                 Dashboard
               </Link>
               <Link
                 to="/foryou"
-                className={`hover:drop-shadow-[0_0_8px_#8a2be2] ${
-                  isActive("/foryou") ? "text-[#8a2be2]" : "text-gray-300"
-                }`}
+                className={`hover:drop-shadow-[0_0_8px_#8a2be2] ${isActive("/foryou") ? "text-[#8a2be2]" : "text-gray-300"
+                  }`}
               >
                 For You
               </Link>
               <Link
                 to="/jobs"
-                className={`hover:drop-shadow-[0_0_8px_#8a2be2] ${
-                  isActive("/jobs") ? "text-[#8a2be2]" : "text-gray-300"
-                }`}
+                className={`hover:drop-shadow-[0_0_8px_#8a2be2] ${isActive("/jobs") ? "text-[#8a2be2]" : "text-gray-300"
+                  }`}
               >
                 Jobs
               </Link>
               <Link
                 to="/user/applied-jobs"
-                className={`hover:drop-shadow-[0_0_8px_#8a2be2] ${
-                  isActive("/user/applied-jobs")
+                className={`hover:drop-shadow-[0_0_8px_#8a2be2] ${isActive("/user/applied-jobs")
                     ? "text-[#8a2be2]"
                     : "text-gray-300"
-                }`}
+                  }`}
               >
                 Applied Jobs
               </Link>
@@ -91,31 +115,28 @@ export default function Navbar() {
             <>
               <Link
                 to="/recruiter/post-job"
-                className={`hover:drop-shadow-[0_0_8px_#8a2be2] ${
-                  isActive("/recruiter/post-job")
+                className={`hover:drop-shadow-[0_0_8px_#8a2be2] ${isActive("/recruiter/post-job")
                     ? "text-[#8a2be2]"
                     : "text-gray-300"
-                }`}
+                  }`}
               >
                 Post a Job
               </Link>
               <Link
                 to="/recruiter/my-jobs"
-                className={`hover:drop-shadow-[0_0_8px_#8a2be2] ${
-                  isActive("/recruiter/my-jobs")
+                className={`hover:drop-shadow-[0_0_8px_#8a2be2] ${isActive("/recruiter/my-jobs")
                     ? "text-[#8a2be2]"
                     : "text-gray-300"
-                }`}
+                  }`}
               >
                 My Jobs
               </Link>
               <Link
                 to="/recruiter/applications"
-                className={`hover:drop-shadow-[0_0_8px_#8a2be2] ${
-                  isActive("/recruiter/applications")
+                className={`hover:drop-shadow-[0_0_8px_#8a2be2] ${isActive("/recruiter/applications")
                     ? "text-[#8a2be2]"
                     : "text-gray-300"
-                }`}
+                  }`}
               >
                 Applications
               </Link>
@@ -130,9 +151,12 @@ export default function Navbar() {
                 onClick={() => setIsOpen(!isOpen)}
               >
                 <img
-                  src={user.profilePicture || "profile-logo.jpg"}
+                  src={user?.profilePicture || "/profile-logo.jpg"}
                   alt="User"
-                  className="w-10 h-10 rounded-full border border-[#8a2be2] shadow-[0_0_10px_#8a2be2]"
+                  className="w-10 h-10 rounded-full border border-[#8a2be2] shadow-[0_0_10px_#8a2be2] object-cover"
+                  onError={(e) => {
+                    e.target.src = "/profile-logo.jpg";
+                  }}
                 />
               </div>
 

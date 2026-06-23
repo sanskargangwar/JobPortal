@@ -1,6 +1,15 @@
 import { Link } from "react-router-dom";
-
+import google from "../../../assest/google.png";
+import microsoft from "../../../assest/microsoft.png";
+import amazon from "../../../assest/amazon.png";
+import adobe from "../../../assest/adobe.png";
 export default function JobSeekerDashboard() {
+const company = [
+  { name: "Google", logo: google },
+  { name: "Microsoft", logo: microsoft },
+  { name: "Amazon", logo: amazon },
+  { name: "Adobe", logo: adobe },
+];
   return (
     <div data-aos="fade-up" className="min-h-screen bg-black text-white">
       {/* Hero Section */}
@@ -109,34 +118,33 @@ export default function JobSeekerDashboard() {
       </section>
       {/* Popular Companies Section */}
       <section className="px-10 py-20 bg-gray-900 text-white">
-        <h2 className="text-3xl font-bold mb-8 text-white drop-shadow-[0_0_10px_#8a2be2]">
-          Top Companies Hiring
-        </h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          {[
-            "Google",
-            "Microsoft",
-            "Amazon",
-            "Meta",
-            "Apple",
-            "Netflix",
-            "Tesla",
-            "Adobe",
-          ].map((company, i) => (
-            <div
-              key={i}
-              className="bg-black p-6 rounded-xl flex flex-col items-center shadow-lg shadow-[#8a2be2]/50 hover:shadow-[#8a2be2]/80 transition"
-            >
-              <img
-                src={`https://logo.clearbit.com/${company.toLowerCase()}.com`}
-                alt={company}
-                className="w-20 h-20 object-contain mb-4"
-              />
-              <p className="text-gray-300 font-semibold">{company}</p>
-            </div>
-          ))}
-        </div>
-      </section>
+  <h2 className="text-3xl font-bold mb-8 text-white drop-shadow-[0_0_10px_#8a2be2]">
+    Top Companies Hiring
+  </h2>
+
+  <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+    {company.map((company, index) => (
+      <div
+        key={index}
+        className="bg-black p-6 rounded-xl flex flex-col items-center shadow-lg shadow-[#8a2be2]/50 hover:shadow-[#8a2be2]/80 transition"
+      >
+        <img
+          src={company.logo}
+          alt={company.name}
+          className="w-20 h-20 object-contain mb-4 bg-white p-2 rounded"
+          onError={(e) => {
+            e.target.src =
+              "https://via.placeholder.com/80?text=Logo";
+          }}
+        />
+
+        <p className="text-gray-300 font-semibold">
+          {company.name}
+        </p>
+      </div>
+    ))}
+  </div>
+</section>
 
       {/* AI Insights Section */}
       <section className="px-10 py-20 bg-black text-white">

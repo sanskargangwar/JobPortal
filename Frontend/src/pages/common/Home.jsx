@@ -93,7 +93,7 @@ export default function Home() {
             />
             <div>
               <h3 className="text-2xl font-bold text-white drop-shadow-[0_0_6px_#8a2be2]">
-                AI-Powered Resume Optimizer
+                <a href="https://resumebuilder-1-w4jo.onrender.com/">AI-Powered Resume Optimizer</a>
               </h3>
               <p className="text-gray-300 mt-4">
                 Optimize your resume to pass ATS (Applicant Tracking Systems)

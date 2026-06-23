@@ -1,0 +1,60 @@
+# Dependencies
+node_modules/
+
+# Environment Variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Build Folders
+dist/
+build/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Runtime Data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage
+coverage/
+
+# Cache
+.cache/
+.parcel-cache/
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# IDE Files
+.vscode/
+.idea/
+
+# Vite
+.vite/
+
+# Temporary Files
+tmp/
+temp/
+
+# Uploads (optional)
+uploads/
+
+# MongoDB
+.mongodb/
+
+# Generated Files
+*.tgz
+
+# ESLint Cache
+.eslintcache
