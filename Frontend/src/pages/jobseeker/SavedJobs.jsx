@@ -13,7 +13,7 @@ export default function SavedJobs() {
       const token = localStorage.getItem("token");
       if (!localStorage.getItem("token")) return;
       try {
-        const res = await axios.get("http://localhost:5000/api/saved-jobs", {
+        const res = await axios.get("https://jobportalbackend-4vft.onrender.com/api/saved-jobs", {
           headers: { Authorization: `Bearer ${token}` },
         });
         setJobs(res.data);
