@@ -2,7 +2,7 @@ import express from "express";
 import Application from "../models/Applications.js";
 import Job from "../models/Jobs.js";
 import User from "../models/User.js";
-import { authMiddleware } from "../middleware/authMiddleware.js";
+import { authMiddleware } from "../middleware/authmiddleware.js";
 
 const router = express.Router();
 
